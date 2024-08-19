@@ -12,15 +12,35 @@ const cobra = {
     },
 
     mover(){
-        if (this.direcao == 0)
+       if (this.direcao == 0)
            this.x++
-        if (this.direcao == 90)
+      if (this.direcao == 90)
            this.y++
-        if (this.direcao == 180)
+      if (this.direcao == 180)
            this.x--
-        if (this.direcao == 270)
+      if (this.direcao == 270)
            this.y--
-        
-    }
+      if ((this.x + this.tamanho > tela.largura)
+           ||(this.x < 0)
+           ||(this.y +this.tamanho > tela.altura+placar.altura)
+           ||(this.y < 60)
+      )
+      this.morrer()
+   },
+   morrer(){
+      this.vida--;
+      if (this.vida == 2)
+         this.cor = "orange"
+      if (this.vida == 1)
+         this.cor="red"
+      this.x=400;
+      this.y=260;
 
-}
+   }
+    
+      
+
+
+ }
+
+
