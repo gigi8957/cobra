@@ -2,10 +2,12 @@ function jogar(){
     tela.desenhar();
     placar.desenhar();
     cobra.desenhar();
+    comida.desenhar();
     cobra.mover();
     requestAnimationFrame(jogar);
 
 }
+const comida = new Comida(10,30);
 requestAnimationFrame(jogar)
 document.addEventListener("keydown", (evento) => {
     if (evento.key == 6) cobra.direcao=0;
