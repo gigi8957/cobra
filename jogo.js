@@ -2,10 +2,22 @@ function jogar(){
     tela.desenhar();
     placar.desenhar();
     cobra.desenhar();
+    comida.desenhar();
     cobra.mover();
-    requestAnimationFrame(jogar);
+    if (comida.colidir(cobra)){
+        placar.pontos+=comida.valor;
+        comida = new Comida(comida.valor+5,30,400)
+    }
+    if(cobra.vida > 0)
+       requestAnimationFrame(jogar);
+    else{
+        placar.nomeJogo="FIM DE JOGO";
+        placar.desenhar();
+    }
+
 
 }
+let comida = new Comida(10,30);
 requestAnimationFrame(jogar)
 document.addEventListener("keydown", (evento) => {
     if (evento.key == 6) cobra.direcao=0;
