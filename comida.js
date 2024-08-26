@@ -1,10 +1,8 @@
-class Comida {
+class Comida extends objetoJogo{
     arqImagem = "comida.png"
-    constructor (valor, tamanho) {
+    constructor (valor,...args) {
+        super(args)
         this.valor = valor;
-        this.tamanho = tamanho;
-        this.x = 50;
-        this.y = 300;
         this.imagem = new Image()
         this.imagem.src = this.arqImagem
     }
